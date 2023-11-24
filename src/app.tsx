@@ -1,23 +1,32 @@
-import React from 'react';
-import logo from './assets/icons/logo.svg';
-import {SApp, SHeader, SLink, SLogo} from "./assets/styles/app.styles";
+import TodolistCreate from './components/TodoListCreate';
+import TodoList from './components/TodoList';
+import { SApp, STodoApp } from './assets/styles/app.styles';
+import { useCallback, useEffect, useMemo, useState, memo, useRef } from 'react';
+import { TODO_LIST } from './constants/todos';
+
+type SortStatus = 'all' | 'active' | 'completed';
 
 function App() {
+    const [listToDo, setListToDo] = useState(() => TODO_LIST);
+    const [sortListTodo, setSortListTodo] = useState<SortStatus>('all');
+
+    useEffect(() => {
+        localStorage.hasOwnProperty('todo-list')
+            ? setListToDo(JSON.parse(localStorage.getItem('todo-list') ?? ''))
+            : localStorage.setItem('todo-list', JSON.stringify(listToDo));
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('todo-list', JSON.stringify(listToDo));
+    }, [listToDo]);
+
     return (
         <SApp>
-            <SHeader>
-                <SLogo src={logo} alt="logo"/>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <SLink
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </SLink>
-            </SHeader>
+            <h1>ToDo</h1>
+            <STodoApp>
+                <TodolistCreate setListToDo={setListToDo} setSortListTodo={setSortListTodo}/>
+                <TodoList list={listToDo} setListToDo={setListToDo} sortListTodo={sortListTodo} />
+            </STodoApp>
         </SApp>
     );
 }
