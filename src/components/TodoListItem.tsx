@@ -1,6 +1,6 @@
 import { SInputCheck, SInputText } from '../assets/styles/SInput';
 import { SBtn } from '../assets/styles/SBtn';
-import { useCallback, useEffect, useMemo, useState, memo, useRef, ChangeEvent, SetStateAction, Dispatch } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 interface ItemList {

@@ -1,8 +1,5 @@
 import TodoListItem from './TodoListItem';
-import { SInputCheck, SInputText } from '../assets/styles/SInput';
-import { SBtn } from '../assets/styles/SBtn';
-import { useEffect, SetStateAction, Dispatch } from 'react';
-import styled from 'styled-components';
+import { SetStateAction, Dispatch } from 'react';
 
 interface ItemList {
     id: string;

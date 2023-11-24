@@ -1,7 +1,7 @@
 import { SBtn } from '../assets/styles/SBtn';
 import { SInputText } from '../assets/styles/SInput';
 import styled from 'styled-components';
-import { useCallback, useEffect, useMemo, useState, memo, useRef, ChangeEvent, SetStateAction, Dispatch } from 'react';
+import { useState, SetStateAction, Dispatch } from 'react';
 
 type SortStatus = 'all' | 'active' | 'completed';
 

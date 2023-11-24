@@ -1,7 +1,7 @@
 import TodolistCreate from './components/TodoListCreate';
 import TodoList from './components/TodoList';
 import { SApp, STodoApp } from './assets/styles/app.styles';
-import { useCallback, useEffect, useMemo, useState, memo, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { TODO_LIST } from './constants/todos';
 
 type SortStatus = 'all' | 'active' | 'completed';
